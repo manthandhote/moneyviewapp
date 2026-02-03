@@ -1,0 +1,452 @@
+:root {
+  --primary: #6C63FF;
+  --primary-light: #F0EFFF;
+  --bg: #FFFFFF;
+  --surface: #F8F9FA;
+  --text-main: #2D3436;
+  --text-muted: #636E72;
+  --success: #00B894;
+  --warning: #FAB1A0;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --font-family: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: #F0F2F5;
+  color: var(--text-main);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+.mobile-container {
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: var(--bg);
+  position: relative;
+  padding-bottom: 80px;
+  /* Space for bottom nav */
+}
+
+/* Status Bar */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.status-icons {
+  display: flex;
+  gap: 8px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 16px;
+}
+
+.header h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.menu-icon {
+  cursor: pointer;
+}
+
+/* Section Common */
+section {
+  padding: 0 24px;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* Cards */
+.card {
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+/* Personal Loan Card */
+.personal-loan-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loan-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-block .label {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: block;
+}
+
+.stat-block .value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.usage-bar-container {
+  height: 8px;
+  background: var(--primary-light);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.usage-bar {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+.usage-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-align: right;
+}
+
+.pay-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.pay-btn:active {
+  transform: scale(0.95);
+}
+
+/* Upcoming Bill Card */
+.bill-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bill-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bill-stat .label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.bill-stat .value {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.countdown-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.circular-progress {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid var(--primary-light);
+  border-top-color: var(--primary);
+  transform: rotate(-45deg);
+}
+
+.countdown-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  z-index: 1;
+}
+
+.countdown-subtext {
+  font-size: 10px;
+  color: var(--text-muted);
+  z-index: 1;
+}
+
+.view-statement {
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 8px;
+  display: inline-block;
+}
+
+/* Reminder Section */
+.reminder-slider-container {
+  padding: 24px 0;
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  font-size: 12px;
+  color: var(--text-muted);
+  position: relative;
+}
+
+.slider-wrapper {
+  position: relative;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.custom-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--primary-light);
+  border-radius: 2px;
+  outline: none;
+}
+
+.custom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  border: 4px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(108, 99, 255, 0.3);
+}
+
+.reminder-msg {
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 16px;
+}
+
+/* Loan Grid */
+.loan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.loan-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.icon-circle {
+  width: 56px;
+  height: 56px;
+  background: var(--surface);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: var(--primary);
+  transition: all 0.2s;
+}
+
+.loan-item:hover .icon-circle {
+  background: var(--primary-light);
+  transform: translateY(-4px);
+}
+
+.loan-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Installment Schedule */
+.installment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.installment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  transition: all 0.2s;
+}
+
+.installment-item:hover {
+  background: #f0f0f0;
+}
+
+.inst-date-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.inst-date {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.inst-status {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-overdue {
+  color: #EB4D4B;
+}
+
+.status-pending {
+  color: var(--primary);
+}
+
+.status-upcoming {
+  color: var(--text-muted);
+}
+
+.inst-amount-info {
+  text-align: right;
+}
+
+.inst-amount {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.inst-penalty {
+  font-size: 10px;
+  color: #EB4D4B;
+  display: block;
+}
+
+/* Overdue Badge */
+.badge-overdue {
+  background: #FFEBEB;
+  color: #EB4D4B;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.view-all-link {
+  display: block;
+  text-align: center;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 16px;
+  text-decoration: none;
+}
+
+/* Bottom Nav */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: var(--bg);
+  display: flex;
+  justify-content: space-around;
+  padding: 16px 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.nav-item.active {
+  color: var(--primary);
+}
+
+.nav-item span {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: slideIn 0.3s ease forwards;
+}
+
+.transition-card {
+  transition: all 0.3s ease;
+}
