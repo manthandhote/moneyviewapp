@@ -23,8 +23,8 @@ const App = () => {
     const [activeTab, setActiveTab] = useState('Home');
 
     const installments = [
-        { date: '08 Jan 2026', amount: 2570, status: 'Overdue', penalty: 200 },
-        { date: '08 Feb 2026', amount: 2370, status: 'Pending', penalty: 0 },
+        { date: '08 Jan 2026', amount: 2570, status: 'Paid', penalty: 0 },
+        { date: '08 Feb 2026', amount: 2370, status: 'Paid', penalty: 0 },
         { date: '08 Mar 2026', amount: 2370, status: 'Upcoming', penalty: 0 },
         { date: '08 Apr 2026', amount: 2370, status: 'Upcoming', penalty: 0 },
         { date: '08 May 2026', amount: 2370, status: 'Upcoming', penalty: 0 },
@@ -39,9 +39,9 @@ const App = () => {
                     <div className="loan-header">
                         <div>
                             <h2 className="section-title" style={{ marginBottom: '4px' }}>Personal Loan</h2>
-                            <span className="badge-overdue">2 Installments Pending</span>
+                            <span className="badge-success">Next Bill: 08 Mar</span>
                         </div>
-                        <button className="pay-btn">
+                        <button className="pay-btn" onClick={() => setActiveTab('Payments')}>
                             <Zap size={18} fill="currentColor" />
                             Pay Now
                         </button>
@@ -53,40 +53,40 @@ const App = () => {
                             <span className="value">₹13,000</span>
                         </div>
                         <div className="stat-block">
-                            <span className="label">Total Payable</span>
-                            <span className="value">₹14,420</span>
+                            <span className="label">Total Outstanding</span>
+                            <span className="value">₹9,480</span>
                         </div>
                     </div>
 
                     <div className="usage-indicator">
                         <div className="usage-bar-container">
-                            <div className="usage-bar" style={{ width: '100%' }}></div>
+                            <div className="usage-bar" style={{ width: '34%' }}></div>
                         </div>
-                        <p className="usage-label">100% Disbursed</p>
+                        <p className="usage-label">34% Repaid</p>
                     </div>
                 </div>
             </section>
 
-            {/* Section 2 - Outstanding Payment */}
+            {/* Section 2 - Upcoming Bill */}
             <section className="animate-in" style={{ animationDelay: '0.1s' }}>
-                <h2 className="section-title">Outstanding Payment</h2>
-                <div className="card bill-card" style={{ borderColor: '#EB4D4B', borderWidth: '1px', borderStyle: 'solid' }}>
+                <h2 className="section-title">Upcoming Bill</h2>
+                <div className="card bill-card">
                     <div className="bill-info">
                         <div className="bill-stat">
-                            <span className="label" style={{ color: '#EB4D4B' }}>Total Overdue (Jan + Feb)</span>
-                            <p className="value" style={{ fontSize: '20px' }}>₹4,940</p>
+                            <span className="label">Amount Due (Mar 08)</span>
+                            <p className="value" style={{ fontSize: '20px' }}>₹2,370</p>
                         </div>
                         <div className="bill-stat">
-                            <span className="label">Next Installment: 08 Feb</span>
-                            <p className="value">₹2,370</p>
+                            <span className="label">Loan Balance</span>
+                            <p className="value">₹9,480</p>
                         </div>
                         <a href="#" className="view-statement">View Statement</a>
                     </div>
 
                     <div className="countdown-container">
-                        <div className="circular-progress" style={{ borderTopColor: '#EB4D4B' }}></div>
-                        <span className="countdown-text" style={{ color: '#EB4D4B' }}>5 Days</span>
-                        <span className="countdown-subtext">Until Feb 8</span>
+                        <div className="circular-progress"></div>
+                        <span className="countdown-text">27 Days</span>
+                        <span className="countdown-subtext">Until Mar 8</span>
                     </div>
                 </div>
             </section>
@@ -136,8 +136,8 @@ const App = () => {
                     <User size={32} />
                 </div>
                 <div>
-                    <h3 style={{ fontSize: '18px' }}>Rahul Sharma</h3>
-                    <p className="label">+91 98765 43210</p>
+                    <h3 style={{ fontSize: '18px' }}>Manthan dhote</h3>
+                    <p className="label">+91 73855 91148</p>
                 </div>
             </div>
             <div className="installment-list" style={{ marginTop: '24px' }}>
@@ -160,12 +160,62 @@ const App = () => {
         </section>
     );
 
+    const PaymentsView = () => (
+        <section className="animate-in">
+            <div className="payment-header">
+                <h2 className="section-title">Make Payment</h2>
+                <div className="amount-display">
+                    <span className="label">Amount to Pay</span>
+                    <h3 className="amount-value">₹2,370</h3>
+                </div>
+            </div>
+
+            <h3 className="subtitle">Payment Methods</h3>
+            <div className="payment-methods">
+                <div className="payment-method-item card-hover">
+                    <div className="method-icon" style={{ backgroundColor: '#E1F5FE' }}>
+                        <Zap size={20} color="#03A9F4" />
+                    </div>
+                    <div className="method-details">
+                        <span className="method-name">UPI Payment</span>
+                        <span className="method-sub">PhonePe, Google Pay, BHIM</span>
+                    </div>
+                </div>
+
+                <div className="payment-method-item card-hover">
+                    <div className="method-icon" style={{ backgroundColor: '#FFF3E0' }}>
+                        <CreditCard size={20} color="#FF9800" />
+                    </div>
+                    <div className="method-details">
+                        <span className="method-name">Debit / Credit Card</span>
+                        <span className="method-sub">Visa, Mastercard, RuPay</span>
+                    </div>
+                </div>
+
+                <div className="payment-method-item card-hover">
+                    <div className="method-icon" style={{ backgroundColor: '#E8F5E9' }}>
+                        <Wallet size={20} color="#4CAF50" />
+                    </div>
+                    <div className="method-details">
+                        <span className="method-name">Net Banking</span>
+                        <span className="method-sub">Over 40+ banks supported</span>
+                    </div>
+                </div>
+            </div>
+
+            <button className="confirm-pay-btn" onClick={() => setActiveTab('Home')}>
+                Proceed to Payment
+            </button>
+        </section>
+    );
+
     const renderContent = () => {
         switch (activeTab) {
             case 'Home': return <HomeView />;
             case 'Schedule': return <ScheduleView />;
             case 'Profile': return <ProfileView />;
             case 'Settings': return <SettingsView />;
+            case 'Payments': return <PaymentsView />;
             default: return <HomeView />;
         }
     };
